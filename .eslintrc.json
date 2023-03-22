@@ -1,0 +1,15 @@
+{
+  "extends": ["@rocketseat/eslint-config/react", "plugin:prettier/recommended"],
+  "rules": {
+    "indent": ["error", 2],
+    "no-unused-vars": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 2
+      }
+    ]
+  }
+}

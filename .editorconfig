@@ -1,0 +1,11 @@
+# Definição do tamanho da tabulação
+tab_width = 2
+
+# Define o tipo de identação a ser usada
+indent_style = space
+
+# Define o tamanho da identação
+indent_size = 2
+
+# Define que aspas simples serão usadas em strings
+quote_type = single
