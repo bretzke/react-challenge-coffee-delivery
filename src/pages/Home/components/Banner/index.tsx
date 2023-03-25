@@ -1,13 +1,31 @@
-import {
-  BannerContainer,
-  MessageIconBox,
-  MessageIconContainer,
-} from './styles';
-import { MessageWithIcon } from '../MessageWithIcon';
+import { BannerContainer, MessageIconContainer } from './styles';
+import { MessageWithIcon } from './MessageWithIcon';
 import { defaultTheme } from '../../../../styles/themes/default';
 import banner from '../../../../assets/banner.png';
 
 export function Banner() {
+  const messages = [
+    {
+      icon: 'cart',
+      message: 'Compra simples e segura',
+      backgroundColor: defaultTheme['yellow-dark'],
+    },
+    {
+      icon: 'cube',
+      message: 'Embalagem mantém o café intacto',
+      backgroundColor: defaultTheme['base-text'],
+    },
+    {
+      icon: 'timer',
+      message: 'Entrega rápida e rastreada',
+      backgroundColor: defaultTheme.yellow,
+    },
+    {
+      icon: 'coffee',
+      message: 'O café chega fresquinho até você',
+      backgroundColor: defaultTheme.purple,
+    },
+  ];
   return (
     <BannerContainer>
       <div>
@@ -17,32 +35,11 @@ export function Banner() {
           hora
         </h3>
 
-        <MessageIconBox>
-          <MessageIconContainer>
-            <MessageWithIcon
-              icon="cart"
-              message="Compra simples e segura"
-              backgroundColor={defaultTheme['yellow-dark']}
-            />
-            <MessageWithIcon
-              icon="cube"
-              message="Embalagem mantém o café intacto"
-              backgroundColor={defaultTheme['base-text']}
-            />
-          </MessageIconContainer>
-          <MessageIconContainer>
-            <MessageWithIcon
-              icon="timer"
-              message="Entrega rápida e rastreada"
-              backgroundColor={defaultTheme.yellow}
-            />
-            <MessageWithIcon
-              icon="coffee"
-              message="O café chega fresquinho até você"
-              backgroundColor={defaultTheme.purple}
-            />
-          </MessageIconContainer>
-        </MessageIconBox>
+        <MessageIconContainer>
+          {messages.map((message) => {
+            return <MessageWithIcon key={message.icon} {...message} />;
+          })}
+        </MessageIconContainer>
       </div>
       <div>
         <img src={banner} alt="Banner - Um copo de café com o nome da marca" />

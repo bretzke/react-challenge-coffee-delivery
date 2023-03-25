@@ -1,9 +1,66 @@
 import { Banner } from './components/Banner';
+import { Card } from './components/Card/index';
+import { ProductsContainer } from './style';
 
 export function Home() {
+  const coffees = [
+    {
+      id: 1,
+      name: 'Expresso tradicional',
+      tags: ['Tradicional'],
+      description: 'O tradicional café feito com água quente e grãos moídos',
+      price: 9.9,
+      quantity: 10,
+      image: '/src/assets/products/tradicional.png',
+    },
+    {
+      id: 2,
+      name: 'Expresso Americano',
+      tags: ['Tradicional'],
+      description: 'Expresso diluído, menos intenso que o tradicional',
+      price: 9.9,
+      quantity: 10,
+      image: '/src/assets/products/americano.png',
+    },
+    {
+      id: 3,
+      name: 'Expresso Cremoso',
+      tags: ['Tradicional'],
+      description: 'Café expresso tradicional com espuma cremosa',
+      price: 11.99,
+      quantity: 10,
+      image: '/src/assets/products/cremoso.png',
+    },
+    {
+      id: 4,
+      name: 'Expresso Gelado',
+      tags: ['Tradicional', 'Gelado'],
+      description: 'Bebida preparada com café expresso e cubos de gelo',
+      price: 9.9,
+      quantity: 10,
+      image: '/src/assets/products/gelado.png',
+    },
+    {
+      id: 5,
+      name: 'Café com leite',
+      tags: ['Tradicional', 'Com leite'],
+      description: 'Meio a meio de expresso tradicional com leite vaporizado',
+      price: 4.99,
+      quantity: 5,
+      image: '/src/assets/products/leite.png',
+    },
+  ];
   return (
     <div>
       <Banner />
+
+      <h1 style={{ marginBottom: '54px' }}>Nossos cafés</h1>
+
+      <ProductsContainer>
+        {coffees.map((coffee) => {
+          return <Card key={coffee.id} {...coffee} />;
+        })}
+      </ProductsContainer>
     </div>
   );
 }

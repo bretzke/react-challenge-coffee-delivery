@@ -10,13 +10,8 @@ export const BannerContainer = styled.div`
 export const MessageIconContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 40px;
-`;
-
-export const MessageIconBox = styled.div`
-  display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 20px;
   margin-top: 67px;
+  gap: 20px 40px;
 `;

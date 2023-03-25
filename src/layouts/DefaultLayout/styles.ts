@@ -9,6 +9,13 @@ export const LayoutContainer = styled.div`
     line-height: 130%;
   }
 
+  h2 {
+    font-family: 'Baloo 2';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%;
+  }
+
   h3 {
     margin-top: 16px;
     font-size: 20px;

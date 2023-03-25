@@ -18,5 +18,6 @@ export const MessageWithIconContainer = styled.div`
   span {
     color: ${(props) => props.theme['base-text']};
     font-size: 16px;
+    min-width: 260px;
   }
 `;
