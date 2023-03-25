@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ProductsContainer = styled.div`
+export const CoffeesContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 32px;

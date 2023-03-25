@@ -12,7 +12,7 @@ interface CoffeesState {
 
 export function coffeesReducer(state: CoffeesState, action: any) {
   switch (action.type) {
-    case ActionTypes.ADD_NEW_PRODUCT_TO_CART: {
+    case ActionTypes.ADD_NEW_COFFEE_TO_CART: {
       const currentCoffeeIndex = state.cart.findIndex((coffee) => {
         return coffee.id === action.payload.id;
       });
