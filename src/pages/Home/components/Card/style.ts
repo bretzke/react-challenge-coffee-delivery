@@ -69,3 +69,27 @@ export const CardPrice = styled.div`
     line-height: 130%;
   }
 `;
+
+export const CoffeeBuyContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const ShoppingCartButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  height: 40px;
+  width: 38px;
+  border: none;
+  background: ${(props) => props.theme['purple-dark']};
+  border-radius: 6px;
+  font-size: 18px;
+  color: #f3f2f2;
+
+  &:hover {
+    background: ${(props) => props.theme.purple};
+  }
+`;

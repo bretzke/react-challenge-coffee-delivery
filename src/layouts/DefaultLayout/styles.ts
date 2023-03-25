@@ -23,4 +23,13 @@ export const LayoutContainer = styled.div`
     font-weight: normal;
     line-height: 130%;
   }
+
+  button {
+    transition: all 0.4s;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
 `;
