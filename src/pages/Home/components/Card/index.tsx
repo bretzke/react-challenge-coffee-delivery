@@ -10,7 +10,8 @@ import {
 } from './style';
 import { SelectQuantity } from './../../../../components/SelectQuantity/index';
 import { ShoppingCart } from 'phosphor-react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CoffeesContext } from '../../../../contexts/CoffeesContext';
 
 interface ICardProps {
   id: number;
@@ -31,16 +32,16 @@ export function Card({
   quantity,
   image,
 }: ICardProps) {
+  const { cart, addCoffeeToCart } = useContext(CoffeesContext);
   const [quantityToBuy, setquantityToBuy] = useState(1);
 
   function updateQuantityToBuy(newQuantity: number) {
     setquantityToBuy(newQuantity);
   }
 
-  function addCoffeeToCart() {
-    console.log(
-      `Adicionado ${quantityToBuy} unidades do café ${id} no carrinho`
-    );
+  function handleAddCoffeeToCart() {
+    console.log(id, quantityToBuy);
+    addCoffeeToCart({ id, quantity: quantityToBuy });
 
     updateQuantityToBuy(1);
   }
@@ -79,7 +80,7 @@ export function Card({
             quantityToBuy={quantityToBuy}
             updateQuantityToBuy={updateQuantityToBuy}
           />
-          <ShoppingCartButton onClick={addCoffeeToCart}>
+          <ShoppingCartButton onClick={handleAddCoffeeToCart}>
             <ShoppingCart weight="fill" />
           </ShoppingCartButton>
         </CoffeeBuyContainer>
