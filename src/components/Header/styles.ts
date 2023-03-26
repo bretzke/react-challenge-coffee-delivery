@@ -12,6 +12,7 @@ export const HeaderContainer = styled.header`
     gap: 12px;
 
     a {
+      position: relative;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -46,4 +47,22 @@ export const HeaderContainer = styled.header`
       cursor: pointer;
     }
   }
+`;
+
+export const CartTotal = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -8.35px;
+  top: -8px;
+  background: ${(props) => props.theme['yellow-dark']};
+  color: ${(props) => props.theme.white};
+  border-radius: 1000px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 130%;
 `;

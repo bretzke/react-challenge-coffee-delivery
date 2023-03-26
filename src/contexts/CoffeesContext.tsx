@@ -35,12 +35,10 @@ export function CoffeesContextProvider({
   const { cart } = coffeesState;
 
   function addCoffeeToCart({ id, quantity }: Coffee) {
-    console.log('antes do dispatch');
     dispatch(addCoffeeToCartAction({ id, quantity }));
   }
 
   useEffect(() => {
-    console.log(coffeesState);
     const stateJSON = JSON.stringify(coffeesState);
 
     localStorage.setItem(CART_KEY_ON_LOCAL_STORAGE, stateJSON);

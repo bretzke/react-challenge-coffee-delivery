@@ -40,7 +40,6 @@ export function Card({
   }
 
   function handleAddCoffeeToCart() {
-    console.log(id, quantityToBuy);
     addCoffeeToCart({ id, quantity: quantityToBuy });
 
     updateQuantityToBuy(1);
