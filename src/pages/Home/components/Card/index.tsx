@@ -4,6 +4,7 @@ import {
   CardInfo,
   CardPrice,
   CardTag,
+  CardTagContainer,
   CardText,
   CoffeeBuyContainer,
   ShoppingCartButton,
@@ -58,9 +59,11 @@ export function Card({
       <img src={image} alt={description} />
 
       <CardText>
-        {tags.map((tag) => {
-          return <CardTag key={tag}>{tag}</CardTag>;
-        })}
+        <CardTagContainer>
+          {tags.map((tag) => {
+            return <CardTag key={tag}>{tag}</CardTag>;
+          })}
+        </CardTagContainer>
 
         <h2>{name}</h2>
 
@@ -74,14 +77,22 @@ export function Card({
         </CardPrice>
 
         <CoffeeBuyContainer>
-          <SelectQuantity
-            maxQuantity={quantity}
-            quantityToBuy={quantityToBuy}
-            updateQuantityToBuy={updateQuantityToBuy}
-          />
-          <ShoppingCartButton onClick={handleAddCoffeeToCart}>
-            <ShoppingCart weight="fill" />
-          </ShoppingCartButton>
+          {quantity > 0 && (
+            <>
+              <SelectQuantity
+                maxQuantity={quantity}
+                quantityToBuy={quantityToBuy}
+                updateQuantityToBuy={updateQuantityToBuy}
+              />
+              <ShoppingCartButton onClick={handleAddCoffeeToCart}>
+                <ShoppingCart weight="fill" />
+              </ShoppingCartButton>
+            </>
+          )}
+
+          {quantity <= 0 && (
+            <h2 style={{ width: '100%', margin: 0 }}>ESGOTADO</h2>
+          )}
         </CoffeeBuyContainer>
       </CardInfo>
     </CardContainer>

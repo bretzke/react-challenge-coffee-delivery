@@ -1,13 +1,24 @@
 import { ActionTypes } from './actions';
 import { produce } from 'immer';
 
-export interface Coffee {
+export interface CoffeeCart {
   id: number;
   quantity: number;
 }
 
+export interface Coffee {
+  id: number;
+  name: string;
+  tags: string[];
+  description: string;
+  price: number;
+  quantity: number;
+  image: string;
+}
+
 interface CoffeesState {
-  cart: Coffee[];
+  cart: CoffeeCart[];
+  coffees: Coffee[];
 }
 
 export function coffeesReducer(state: CoffeesState, action: any) {
@@ -24,15 +35,7 @@ export function coffeesReducer(state: CoffeesState, action: any) {
       }
 
       return produce(state, (draft) => {
-        let quantity =
-          draft.cart[currentCoffeeIndex].quantity + action.payload.quantity;
-
-        // TODO: lógica para colocar o estoque máximo do produto caso a quantidade for maior
-        if (quantity > 10) {
-          quantity = 10;
-        }
-
-        draft.cart[currentCoffeeIndex].quantity = quantity;
+        draft.cart[currentCoffeeIndex].quantity += action.payload.quantity;
       });
     }
 

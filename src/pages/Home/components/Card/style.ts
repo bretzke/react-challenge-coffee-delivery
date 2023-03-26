@@ -30,6 +30,14 @@ export const CardText = styled.div`
   margin-top: 92px;
 `;
 
+export const CardTagContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+`;
+
 export const CardTag = styled.p`
   display: inline;
   padding: 4px 8px;
@@ -74,6 +82,8 @@ export const CoffeeBuyContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 131px;
+  text-align: center;
 `;
 
 export const ShoppingCartButton = styled.button`
