@@ -91,3 +91,9 @@ export const ConfirmOrderButton = styled.button`
     background: ${(props) => props.theme['yellow-dark']};
   }
 `;
+
+export const OrderItemDetails = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`;

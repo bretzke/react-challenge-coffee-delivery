@@ -4,7 +4,7 @@ export const OrderInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 47%;
+  width: 40%;
 `;
 
 export const OrderColumn = styled.div`

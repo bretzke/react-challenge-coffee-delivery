@@ -6,6 +6,7 @@ import {
   ButtonRemove,
   OrderItemActions,
   OrderItemContainer,
+  OrderItemDetails,
   OrderItemDivisor,
 } from './styles';
 import { Trash } from 'phosphor-react';
@@ -36,26 +37,28 @@ export function OrderItem(orderItem: OrderItemProps) {
   return (
     <>
       <OrderItemContainer>
-        <img
-          src={coffee.image}
-          alt={coffee.description}
-          width={64}
-          height={64}
-        />
-        <OrderItemActions>
-          <p>{coffee.name}</p>
-          <div>
-            <SelectQuantity
-              maxQuantity={coffee.quantity}
-              quantityToBuy={quantity}
-              updateQuantityToBuy={updateQuantityToBuy}
-              key={orderItem.id}
-            />
-            <ButtonRemove onClick={handleRemoveItem}>
-              <Trash /> Remover
-            </ButtonRemove>
-          </div>
-        </OrderItemActions>
+        <OrderItemDetails>
+          <img
+            src={coffee.image}
+            alt={coffee.description}
+            width={64}
+            height={64}
+          />
+          <OrderItemActions>
+            <p>{coffee.name}</p>
+            <div>
+              <SelectQuantity
+                maxQuantity={coffee.quantity}
+                quantityToBuy={quantity}
+                updateQuantityToBuy={updateQuantityToBuy}
+                key={orderItem.id}
+              />
+              <ButtonRemove onClick={handleRemoveItem}>
+                <Trash /> Remover
+              </ButtonRemove>
+            </div>
+          </OrderItemActions>
+        </OrderItemDetails>
         <h4>R$ {FormatToReal(coffee.price * orderItem.quantity)}</h4>
       </OrderItemContainer>
       <OrderItemDivisor />

@@ -22,7 +22,7 @@ export function OrderInfo() {
     <OrderInfoContainer>
       <h2>Cafés selecionados</h2>
 
-      <section>
+      <section style={{ borderRadius: '6px 44px' }}>
         {cart?.map((orderItem) => (
           <OrderItem key={orderItem.id} {...orderItem} />
         ))}

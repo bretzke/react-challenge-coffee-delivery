@@ -5,6 +5,7 @@ export const CheckoutContainer = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   gap: 32px;
+  margin-bottom: 32px;
 
   h2 {
     font-family: 'Baloo 2', cursive;
@@ -20,5 +21,6 @@ export const CheckoutContainer = styled.div`
     align-items: flex-start;
     padding: 40px;
     background-color: ${(props) => props.theme['base-card']};
+    border-radius: 6px;
   }
 `;

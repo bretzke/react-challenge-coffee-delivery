@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const OrderRegistrationContainer = styled.div`
-  width: 53%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   gap: 15px;
