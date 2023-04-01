@@ -16,7 +16,6 @@ export const SelectQuantityContainer = styled.div`
     height: 14px;
     cursor: pointer;
     background-color: transparent;
-    border: none;
     display: flex;
     align-items: center;
     justify-content: center;

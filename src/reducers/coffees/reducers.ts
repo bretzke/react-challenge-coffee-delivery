@@ -39,6 +39,24 @@ export function coffeesReducer(state: CoffeesState, action: any) {
       });
     }
 
+    case ActionTypes.UPDATE_COFFEE_QUANTITY:
+      return produce(state, (draft) => {
+        const orderItem = draft.cart.find(
+          (coffee) => coffee.id === action.payload.id
+        );
+
+        if (!orderItem) return draft;
+
+        orderItem.quantity = action.payload.quantity;
+      });
+
+    case ActionTypes.REMOVE_COFFEE_FROM_CART: {
+      return produce(state, (draft) => {
+        draft.cart = draft.cart.filter(
+          (coffee) => coffee.id !== action.payload.id
+        );
+      });
+    }
     default:
       return state;
   }

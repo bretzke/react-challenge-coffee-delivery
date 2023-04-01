@@ -26,6 +26,7 @@ export const LayoutContainer = styled.div`
 
   button {
     transition: all 0.4s;
+    border: none;
     cursor: pointer;
 
     &:disabled {

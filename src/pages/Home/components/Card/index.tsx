@@ -13,6 +13,7 @@ import { SelectQuantity } from './../../../../components/SelectQuantity/index';
 import { ShoppingCart } from 'phosphor-react';
 import { useContext, useState } from 'react';
 import { CoffeesContext } from '../../../../contexts/CoffeesContext';
+import { FormatToReal } from '../../../../utils/formatToReal';
 
 interface ICardProps {
   id: number;
@@ -33,7 +34,7 @@ export function Card({
   quantity,
   image,
 }: ICardProps) {
-  const { cart, addCoffeeToCart } = useContext(CoffeesContext);
+  const { addCoffeeToCart } = useContext(CoffeesContext);
   const [quantityToBuy, setquantityToBuy] = useState(1);
 
   function updateQuantityToBuy(newQuantity: number) {
@@ -45,14 +46,6 @@ export function Card({
 
     updateQuantityToBuy(1);
   }
-
-  const priceFormatted = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    currencyDisplay: 'code',
-  })
-    .format(price)
-    .replace('BRL', '');
 
   return (
     <CardContainer key={id}>
@@ -73,7 +66,7 @@ export function Card({
       <CardInfo>
         <CardPrice>
           R$
-          <span>{priceFormatted}</span>
+          <span>{FormatToReal(price)}</span>
         </CardPrice>
 
         <CoffeeBuyContainer>

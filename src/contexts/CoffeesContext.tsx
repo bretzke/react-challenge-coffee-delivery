@@ -1,5 +1,9 @@
 import { useEffect, useReducer, createContext, ReactNode } from 'react';
-import { addCoffeeToCartAction } from '../reducers/coffees/actions';
+import {
+  addCoffeeToCartAction,
+  removeCoffeeFromCartAction,
+  updateCoffeeQuantityAction,
+} from '../reducers/coffees/actions';
 import {
   Coffee,
   CoffeeCart,
@@ -11,6 +15,8 @@ interface CoffeesContextType {
   cart: CoffeeCart[];
   coffees: Coffee[];
   addCoffeeToCart: ({ id, quantity }: CoffeeCart) => void;
+  updateCoffeeQuantity: ({ id, quantity }: CoffeeCart) => void;
+  removeCoffeeFromCart: (id: number) => void;
 }
 
 export const CoffeesContext = createContext({} as CoffeesContextType);
@@ -44,6 +50,14 @@ export function CoffeesContextProvider({
     dispatch(addCoffeeToCartAction({ id, quantity }));
   }
 
+  function updateCoffeeQuantity({ id, quantity }: CoffeeCart) {
+    dispatch(updateCoffeeQuantityAction({ id, quantity }));
+  }
+
+  function removeCoffeeFromCart(id: number) {
+    dispatch(removeCoffeeFromCartAction(id));
+  }
+
   useEffect(() => {
     const stateJSON = JSON.stringify(coffeesState);
 
@@ -51,7 +65,15 @@ export function CoffeesContextProvider({
   }, [coffeesState]);
 
   return (
-    <CoffeesContext.Provider value={{ cart, coffees, addCoffeeToCart }}>
+    <CoffeesContext.Provider
+      value={{
+        cart,
+        coffees,
+        addCoffeeToCart,
+        updateCoffeeQuantity,
+        removeCoffeeFromCart,
+      }}
+    >
       {children}
     </CoffeesContext.Provider>
   );

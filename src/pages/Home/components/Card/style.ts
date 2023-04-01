@@ -93,7 +93,6 @@ export const ShoppingCartButton = styled.button`
   padding: 8px;
   height: 40px;
   width: 38px;
-  border: none;
   background: ${(props) => props.theme['purple-dark']};
   border-radius: 6px;
   font-size: 18px;

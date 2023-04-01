@@ -41,7 +41,6 @@ export const HeaderContainer = styled.header`
       width: 143px;
       height: 38px;
       border-radius: 6px;
-      border: none;
       background: ${(props) => props.theme['purple-light']};
       color: ${(props) => props.theme['purple-dark']};
       cursor: pointer;
